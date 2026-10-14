@@ -1,0 +1,72 @@
+# ==========================================================================
+# 上市公司财报问答知识库 —— Git 忽略规则
+# 原则：密钥、原始财报 PDF、向量索引、缓存一律不入库。
+# 注意：本文件生效前需先执行 git init。
+# ==========================================================================
+
+# ---------- 1. 密钥与环境变量（最高优先级，绝不能提交）----------
+.env
+.env.local
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# ---------- 2. 原始财报文件（体量大且为交易所公开版权文件）----------
+data/raw/**/*.pdf
+data/raw/**/*.PDF
+data/raw/**/*.doc
+data/raw/**/*.docx
+# 保留占位文件
+!data/raw/**/.gitkeep
+
+# ---------- 3. 解析中间产物与向量索引 ----------
+indexes/*
+!indexes/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.faiss
+*.index
+*.pkl
+*.npy
+*.npz
+
+# ---------- 4. 日志（运行日志可能含 API 回显内容，不入库）----------
+logs/*
+!logs/.gitkeep
+!logs/evaluation.csv
+
+# ---------- 5. Python 运行产物 ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---------- 6. 本地数据库 / 缓存 ----------
+*.db
+*.sqlite
+*.sqlite3
+.cache/
+.cache_models/
+models_cache/
+huggingface/
+
+# ---------- 7. 编辑器与系统文件 ----------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
