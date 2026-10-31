@@ -70,3 +70,5 @@ huggingface/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+deliverables/evidence_pages_2025/*.pdf
