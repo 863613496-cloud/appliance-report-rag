@@ -2,10 +2,66 @@
 
 课程作业 · 方向 A · 基于 RAG 的上市公司年度报告问答系统
 
-> **当前状态：项目骨架阶段。**
-> 已完成：目录结构、公司名单、测试题库、评测表模板、框架自检脚本。
-> **未完成**：年报下载、PDF 解析、索引构建、检索、回答生成、评测执行。
-> 仓库中没有任何已下载的财报、没有测试结果、没有准确率数据、没有界面截图。
+> **当前状态：解析完成，检索原型已建立，确定性答案模块（第一阶段）与
+> Streamlit 演示界面已实现；人工核验、问答准确率评测、浏览器人工
+> 点击测试与界面截图未完成。**
+> 已完成：目录结构、公司名单、测试题库、评测表模板、框架自检脚本、
+> 14 份 2025 年年报全文下载与核验、14/14 家 PDF → 带页码文本块。
+> 本轮新增解析的 12 家已完成**自动核验**（页数、块数、空白页、日期审计、
+> 固定种子抽样自动核对），结果见 `deliverables/parse_quality_report_2025.md`
+> 与同名 `.json`。美的集团、石头科技两份基线未重解析。
+> `pdftotext -table` 折行日期截断继续按**证据规则**处理：能由原始 PDF
+> 文本对象证实的才恢复，证据不足的一律保留原值并标记待人工核验
+> （如 000651 p143 两处检测已复核为误报，候选拼合值未写回）。
+>
+> **已建立检索原型**：`indexes/retrieval_v1/` 真实构建，14 家、3,470 个
+> chunk（表格块 2,573 / 正文块 897），BM25 + 字符 n-gram 哈希 TF-IDF 向量
+> （**非神经语义嵌入**，未下载 BGE/FAISS 等模型）+ RRF 融合。10 道固定题
+> 真实检索结果：页码命中 10/10，严格证据充分 9/10（仅主结果 8/10），
+> 确定性作答可用 **6/10**（检索层判定；Q04 因同一报告 p12/p13 两表对烹饪电器、
+> 食物料理电器给出不同金额而降为“否”）。答案模块另按 blocked、口径和
+> 跨页表头门禁逐题判定，实际确定性作答为 **5/10**，见下文答案模块结果。
+> 跨公司混淆 0，来源字段错误 0
+> （仅元数据；上下文的语义归属另见下）；表格命中缺少页内表头时，仅当
+> 上一页列头位于页尾、同公司/同年/同 PDF、且下一页至少两行数字表时才附加
+> 上下文（各自保留页码）。本轮 5 条，全部标为“算法判定，待人工核验”；
+> 上一轮 4 条疑似误挂（Q02 p172/p217、Q07 p80、Q10 p43）已全部拒绝。
+> 并输出 42 条口径提示；最终问答准确率**未评测**。详见
+> `deliverables/retrieval_prototype_2025.md`、`deliverables/retrieval_test_2025.md`、
+> `deliverables/retrieval_improvement_2025.md`、
+> `deliverables/retrieval_failure_cases_2025.md` 和
+> `deliverables/q08_p122_diagnosis_2025.md`。
+>
+> **问答规则与参考答案框架**：`deliverables/answer_rules_2025.md`、
+> `deliverables/answer_reference_review_2025.md`；本轮稳定性检查见
+> `deliverables/stability_check_2025.md`。10 题人工核验状态均为“待核验”，
+> 不填答案准确率。
+>
+> **原始页面证据核验**：`deliverables/manual_evidence_review_2025.md`。
+> 已用 PyMuPDF 渲染并检查 4 条唯一跨页关联（5 道题次）和 Q04 两表；
+> 页面证据支持 4 条关联有效，Q04 差异存在但**原因未明**。
+> 上述检查为助手对原始 PDF 渲染页面的视觉检查，**不是人工目视核验**；
+> 人工语义确认全部仍为“待核验”。页面图像与 excerpt 在
+> `deliverables/evidence_pages_2025/`。
+>
+> **确定性答案模块（第一阶段）**：`src/answer.py` 只依据检索结果和显式规则
+> 抽取答案，**不调用大模型 API**，不把检索排名当作答案。每条指标保留公司、
+> 证券代码、报告年份、指标原文、数值、单位、数据页码、表头来源页码、表名、
+> 证据原文与是否采信。在 10 道固定题的真实检索结果上：可回答 4、
+> 需口径说明 1、需核验 1、证据冲突 1、证据不足 2、已阻断 1；
+> 确定性作答 5 题（Q01、Q03、Q05、Q06、Q08）。75 条引用记录字段完整率
+> 100%，阻断证据误用 0，跨公司混淆 0。Q04 两表差异、Q07 待核验跨页表头、
+> Q09 科沃斯 p20 阻断、Q10 境外口径与分母未统一均有专门审计。
+> 结果见 `deliverables/answer_test_2025.json`、`deliverables/answer_test_2025.md`，
+> 设计说明见 `deliverables/answer_design_2025.md`。
+>
+> **引用完整率不是答案准确率。** 上述“可回答”只是规则判定；所有答案仍需
+> 人工对照原始 PDF 核验。10 题答案准确率**未评测**，人工核验状态**未完成**。
+>
+> **未完成**：人工目视核验；问答准确率评测；浏览器人工点击测试与界面截图。
+> 仓库中没有问答准确率数据、没有界面截图。检索命中不等于答案正确，
+> 本轮没有用检索结果冒充最终答案，也没有把规则输出称为人工确认答案。
+> PDF、JSONL 解析产物与索引均在 .gitignore 中，不入库。
 
 ---
 
@@ -55,7 +111,7 @@
 
 ```
 appliance-report-rag/
-├── app.py                  Streamlit 应用入口（骨架，问答未实现）
+├── app.py                  Streamlit 演示界面（调用现有检索与答案模块）
 ├── requirements.txt        依赖清单（分阶段启用）
 ├── README.md               本文件
 ├── .env.example            环境变量模板（不含真实密钥，可安全提交）
@@ -70,13 +126,15 @@ appliance-report-rag/
 │   ├── config.py           路径与全局常量        【已实现】
 │   ├── companies.py        CSV 读取与校验        【已实现】
 │   ├── check_setup.py      骨架自检脚本          【已实现】
-│   ├── download.py         下载年报              【未实现】
-│   ├── parse.py            PDF 解析与切分        【未实现】
-│   ├── index.py            构建向量索引          【未实现】
-│   ├── retrieve.py         召回相关文本块        【未实现】
-│   ├── answer.py           生成带引用的回答      【未实现】
+│   ├── download.py         下载年报              【已实现】
+│   ├── cninfo.py           巨潮公告检索与候选匹配  【已实现】
+│   ├── parse_policy.py     提取模式裁决与异常检测  【已实现】
+│   ├── parse.py            PDF 解析与切分        【已实现】
+│   ├── index.py            BM25 + 字符 n-gram TF-IDF 索引【已实现】
+│   ├── retrieve.py         混合检索 / 公司过滤 / 跨公司 【已实现】
+│   ├── answer.py           确定性规则答案 + 引用与门禁【已实现，不调用大模型】
 │   └── evaluate.py         评测并写日志          【未实现】
-├── indexes/                向量索引（不入库）
+├── indexes/retrieval_v1/   检索索引（不入库）
 ├── logs/
 │   └── evaluation.csv      评测记录表（当前仅表头）
 ├── screenshots/            界面截图（需实测后再放入）
@@ -91,12 +149,34 @@ appliance-report-rag/
 # 1) 框架自检（仅依赖标准库，无需安装任何包）
 python src/check_setup.py
 
-# 2) 安装第一阶段依赖（下载与解析所需，仅 4 个包）
+# 2) 安装依赖（下载、解析、BM25/向量检索、Streamlit 界面；不安装神经模型）
 pip install -r requirements.txt
 
-# 3) 查看界面（可选，需先 pip install streamlit）
-streamlit run app.py
+# 3) 构建检索索引（读取 data/processed/*.jsonl，写入 indexes/retrieval_v1）
+python -m src.index
+
+# 4) 单题检索（可选 --company/--mode all/--per-company）
+python -m src.retrieve "美的集团2025年营业总收入与归母净利润" --top-k 8
+
+# 5) 10 道固定题真实检索测试（生成 deliverables/retrieval_test_2025.*）
+python -I deliverables/retrieval_eval_2025.py
+
+# 6) 单题确定性回答（不调用大模型）
+python -m src.answer "美的集团2025年营业总收入与归属于母公司股东的净利润分别是多少？同比变动如何？" --question-id Q01 --top-k 8
+
+# 7) 10 道固定题答案测试（生成 deliverables/answer_test_2025.*）
+python -I deliverables/answer_eval_2025.py
+
+# 8) 启动 Streamlit 演示界面（仅本地展示，不调用大模型）
+python -m streamlit run app.py
 ```
+
+界面默认地址为 <http://localhost:8501>。固定题下拉读取
+`config/questions.csv`；点击“查询”后直接调用
+`src.retrieve.retrieve()` 与 `src.answer.answer_from_results()`，
+不复制答案规则，不调用外部大模型 API。页面会显示回答状态、引用证据、
+风险提示和本次实际检索片段。界面输出仍是规则结果，不是人工确认答案；
+浏览器人工点击测试与截图尚未完成。
 
 自检脚本会核对：目录是否齐全、公司数是否为 14、证券代码是否为 6 位字符串、
 题目数是否为 10、跨公司题是否≥2 道、`evaluation.csv` 表头是否正确、
@@ -171,10 +251,12 @@ streamlit run app.py
 ## 7. 后续步骤
 
 - [x] 1. 搭建目录结构与 CSV 模板
-- [ ] 2. 实现 `src/download.py`，从巨潮资讯网下载 14 份 2025 年年度报告**全文**，回填 `companies.csv`
-- [ ] 3. 实现 `src/parse.py`，PDF → 带页码的文本块
+- [x] 2. 实现 `src/download.py`，从巨潮资讯网下载 14 份 2025 年年度报告**全文**，回填 `companies.csv`
+- [x] 3. 实现 `src/parse.py`，PDF → 带页码的文本块（14/14 家已解析；新增 12 家完成自动核验，**人工目视核验未完成**）
 - [ ] 4. 实现 `src/index.py` + `src/retrieve.py`，先跑通**不调用模型**的召回路并人工抽查
-- [ ] 5. 实现 `src/answer.py`，接入大模型（Claude 或 OpenAI 兼容接口），生成带页码引用的回答
+- [x] 5. 实现 `src/answer.py` 的**确定性规则版**：从真实检索结果生成带页码、表头来源与证据原文的回答，含阻断/待核验/冲突门禁（本轮不调用大模型）
+- [ ] 5b. （后续阶段）接入大模型生成自然语言回答；本轮未实现，也未把规则输出称为最终人工确认答案
 - [ ] 6. 实现 `src/evaluate.py`，运行 10 道题并填写 `logs/evaluation.csv`
-- [ ] 7. 补 `app.py` 问答界面，实测后截图存入 `screenshots/`
+- [x] 7. 实现 `app.py` 问答界面（调用现有检索与答案模块；未调用大模型）
+- [ ] 7b. 浏览器人工点击测试，并将实测截图存入 `screenshots/`
 - [ ] 8. 整理交付物至 `deliverables/`

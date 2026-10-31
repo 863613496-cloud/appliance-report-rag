@@ -166,9 +166,9 @@ def check_secrets() -> None:
 def check_data_progress() -> None:
     print("\n== 6. 数据进度（如实统计）==")
     pdfs = sorted(RAW_REPORTS_DIR.glob("*.pdf"))
-    parsed = sorted(PROCESSED_DIR.glob("*.txt"))
+    parsed = sorted(PROCESSED_DIR.glob("*.jsonl"))
     print(f"     data/raw/reports/ 中 PDF：{len(pdfs)} 个")
-    print(f"     data/processed/ 中解析产物：{len(parsed)} 个")
+    print(f"     data/processed/ 中解析产物（JSONL）：{len(parsed)} 个")
     if not pdfs:
         print(f"{WARN} 尚未下载任何年报——这是骨架阶段的预期状态")
         print("     下一步：实现 src/download.py 后从巨潮资讯网获取 14 份 2025 年年度报告")
@@ -192,8 +192,11 @@ def main() -> int:
         for i, issue in enumerate(problems, 1):
             print(f"  {i}. {issue}")
         return 1
-    print("结果：全部通过。框架已就绪，可以进入下一阶段（下载年报）。")
-    print("提示：本项目尚未初始化 Git 仓库，.gitignore 需执行 git init 后才会生效。")
+    print("结果：全部通过。")
+    if (ROOT / ".git").exists():
+        print("提示：Git 仓库已存在；索引、原始 PDF、解析产物和运行日志仍由 .gitignore 排除。")
+    else:
+        print("提示：尚未初始化 Git 仓库，.gitignore 需执行 git init 后才会生效。")
     return 0
 
 

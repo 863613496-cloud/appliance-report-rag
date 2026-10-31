@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import os
+import sys
 from pathlib import Path
 
 # ---------- 目录 ----------
@@ -96,6 +97,22 @@ EVALUATION_COLUMNS = (
 # ---------- 财报文件命名规范 ----------
 REPORT_FILENAME_PATTERN = "{证券代码}_{公司简称}_{报告年份}_年度报告.pdf"
 
+# ---------- 解析与切块参数 ----------
+# 块长按**字符**计——中文财报里 1 个汉字≈1 个 token，按字符切比按词切更可控。
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 150
+
+#: 表格页判定：一行「含阿拉伯数字且不含句末标点」即计为一个疑似表格行。
+#: 一页中此类行的占比达到下表阈值即判为表格页。
+#:
+#: 阈值 0.20 是 **2026-10-16 在美的年报 276 页上实测校准**的结果，不是经验默认值：
+#:   · 9 张已知表格页（p9/20/49/50/52/53/78/135/224）比值 0.323–0.778，全部通过；
+#:   · 3 张已知正文页（p40/146/242）比值均 <0.10，全部落选。
+#: 但实测分布是**连续谱而非双峰**，所以这只是启发式，不是干净分界。
+#: 取值偏保守是刻意的——误判正文页为表格只是块大一点，误判表格页为正文会切散
+#: 行列关系，两者代价不对称。
+TABLE_PAGE_MIN_RATIO = 0.20
+
 
 def load_dotenv_if_present() -> bool:
     """加载项目根目录的 .env。返回是否成功加载。"""
@@ -113,6 +130,30 @@ def load_dotenv_if_present() -> bool:
 def get_env(name: str, default: str | None = None) -> str | None:
     """读取单个环境变量。仅返回取值，不打印。"""
     return os.environ.get(name, default)
+
+
+def make_output_robust() -> None:
+    """让输出在被重定向到管道/文件时不会因编码而中止程序。
+
+    背景（本机实测，2026-10-14）：本项目 CLI 的输出含 U+2713 ✓、U+26A0 ⚠、
+    U+2B1C ⬜、U+25B6 ▶ 等 GBK 无法编码的字符。真实控制台下 Python 走
+    _WindowsConsoleIO，不受影响；但输出一旦被重定向（管道/文件），sys.stdout
+    会退回 locale 编码（本机 cp936），遇到这些字符即抛 UnicodeEncodeError
+    **并中止整个程序**——实测崩在 download.py 的 _print_company()，
+    导致其后的 --json 导出根本没执行，整次检索白跑。
+
+    处置：仅在非终端输出时改用 UTF-8。真实控制台保持原样，以免把本该由
+    控制台处理的 Unicode 攫为己有而显示成乱码。
+    """
+    for stream in (sys.stdout, sys.stderr):
+        if stream is None:
+            continue
+        try:
+            if stream.isatty():
+                continue
+            stream.reconfigure(encoding="utf-8")
+        except (AttributeError, ValueError, OSError):
+            pass  # 流不支持 reconfigure 时静默跳过，不影响主流程
 
 
 def expected_report_filename(code: str, name: str, year: int = REPORT_YEAR) -> str:

@@ -1,0 +1,53 @@
+# ==========================================================================
+# Git 换行符统一规则
+#
+# 背景：本仓库此前没有 .gitattributes，而 core.autocrlf 在本机为 true，
+#       导致 git 会在检出时把 LF 换成 CRLF（`git diff --check` 曾对此告警）。
+#
+# 为什么必须统一：src/companies.py 的 save_companies() 固定用 "\n" 写回
+#       config/companies.csv（这是「读入再写回字节不变」得以成立的前提）。
+#       若 git 在检出时把该文件转成 CRLF，那么每次状态回填都会让 git 认为
+#       整个文件被改动，真实改动会被淹没在噪音里。
+#
+# 约定：仓库内与工作区一律使用 LF。Windows 上的记事本、VS Code、Vim 均
+#       正确支持 LF，Python 读写不受影响。
+#
+# 注意：本文件只声明规则，不重写历史，也不批量改写现有文件；
+#       已有文件在下次被 git 处理时按此规则规范化。
+# ==========================================================================
+
+# 默认：git 自动判断文本/二进制；文本文件一律 LF
+* text=auto eol=lf
+
+# ---------- 文本文件（显式声明，避免自动探测失误）----------
+*.py             text eol=lf
+*.sh             text eol=lf
+*.md             text eol=lf
+*.txt            text eol=lf
+*.csv            text eol=lf
+*.tsv            text eol=lf
+*.json           text eol=lf
+*.yml            text eol=lf
+*.yaml           text eol=lf
+*.toml           text eol=lf
+*.cfg            text eol=lf
+*.ini            text eol=lf
+.gitignore       text eol=lf
+.gitattributes   text eol=lf
+.env.example     text eol=lf
+
+# ---------- 二进制文件（禁止任何换行符转换）----------
+*.pdf    binary
+*.zip    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.xlsx   binary
+*.docx   binary
+*.faiss  binary
+*.index  binary
+*.pkl    binary
+*.npy    binary
+*.npz    binary

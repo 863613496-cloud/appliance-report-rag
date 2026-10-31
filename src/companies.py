@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import csv
+import os
 from pathlib import Path
 
 from src.config import (
@@ -113,3 +114,39 @@ def validate_questions(questions: list[dict[str, str]]) -> list[str]:
             problems.append(f"{qid}：题目正文为空")
 
     return problems
+
+
+def save_companies(companies: list[dict[str, str]], path: Path = COMPANIES_CSV) -> None:
+    """把公司名单写回 CSV（下载阶段回填来源 URL / 状态 / 文件名等字段时使用）。
+
+    写回的三条硬性要求：
+      1. 使用 utf-8-sig 编码写出，保留 BOM，Excel 打开中文不乱码；
+      2. 严格按 COMPANY_COLUMNS 的既定顺序写全部 17 列，不遗漏、不重排、不新增列；
+      3. 证券代码一律按字符串写出，保留前导零（000333 不能变成 333）。
+
+    实现要点：先写同目录临时文件再原子替换，中途失败不会破坏原文件；
+    行终止符固定为 \\n，与当前仓库中的文件一致，保证「读入再写回」字节级不变。
+    """
+    unknown = set()
+    for row in companies:
+        unknown |= set(row) - set(COMPANY_COLUMNS)
+    if unknown:
+        raise ValueError(f"出现未定义的列，拒绝写回以免破坏表结构：{sorted(unknown)}")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.parent / f"{path.name}.tmp"
+    with tmp_path.open("w", encoding=CSV_ENCODING, newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=COMPANY_COLUMNS,
+            extrasaction="ignore",
+            lineterminator="\n",
+        )
+        writer.writeheader()
+        for row in companies:
+            writer.writerow({col: row.get(col, "") for col in COMPANY_COLUMNS})
+
+    os.replace(tmp_path, path)
+    problems = validate_companies(load_companies(path))
+    if problems:
+        raise ValueError("写回后的文件未通过校验：" + "；".join(problems))
