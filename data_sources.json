@@ -1,0 +1,644 @@
+{
+  "检索时间": "2026-11-03 11:34:04",
+  "来源": "https://www.cninfo.com.cn",
+  "目标年份": 2025,
+  "说明": "机器检索结果，尚未经人工确认",
+  "公司": [
+    {
+      "证券代码": "000333",
+      "公司简称": "美的集团",
+      "交易所": "深交所",
+      "orgId": "9900005965",
+      "巨潮简称": "美的集团",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-03-31",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225065145.PDF",
+          "size_kb": 5804,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「美的集团」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225065145",
+          "sec_code": "000333",
+          "sec_name": "美的集团"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-03-31",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225058109.PDF",
+          "size_kb": 288,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225058109",
+          "sec_code": "000333",
+          "sec_name": "美的集团"
+        }
+      ]
+    },
+    {
+      "证券代码": "000651",
+      "公司简称": "格力电器",
+      "交易所": "深交所",
+      "orgId": "gssz0000651",
+      "巨潮简称": "格力电器",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225250396.PDF",
+          "size_kb": 2296,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「格力电器」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225250396",
+          "sec_code": "000651",
+          "sec_name": "格力电器"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告英文版",
+          "title": "2025年年度报告（英文版）",
+          "publish_date": "2026-06-17",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-06-17/1225374514.PDF",
+          "size_kb": 3040,
+          "adjunct_type": "PDF",
+          "basis": "标题含「英文」，非中文正式版本",
+          "doubts": [],
+          "announcement_id": "1225374514",
+          "sec_code": "000651",
+          "sec_name": "格力电器"
+        },
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225250395.PDF",
+          "size_kb": 134,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225250395",
+          "sec_code": "000651",
+          "sec_name": "格力电器"
+        }
+      ]
+    },
+    {
+      "证券代码": "600690",
+      "公司简称": "海尔智家",
+      "交易所": "上交所",
+      "orgId": "gssh0600690",
+      "巨潮简称": "海尔智家",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "海尔智家股份有限公司2025年年度报告",
+          "publish_date": "2026-03-27",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225038336.PDF",
+          "size_kb": 1781,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [],
+          "announcement_id": "1225038336",
+          "sec_code": "600690",
+          "sec_name": "海尔智家"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告英文版",
+          "title": "海尔智家股份有限公司2025年年度报告（英文版）",
+          "publish_date": "2026-04-28",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-28/1225215703.PDF",
+          "size_kb": 1066,
+          "adjunct_type": "PDF",
+          "basis": "标题含「英文」，非中文正式版本",
+          "doubts": [],
+          "announcement_id": "1225215703",
+          "sec_code": "600690",
+          "sec_name": "海尔智家"
+        },
+        {
+          "kind": "年度报告摘要",
+          "title": "海尔智家股份有限公司2025年年度报告_摘要",
+          "publish_date": "2026-03-27",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225038309.PDF",
+          "size_kb": 406,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225038309",
+          "sec_code": "600690",
+          "sec_name": "海尔智家"
+        }
+      ]
+    },
+    {
+      "证券代码": "000921",
+      "公司简称": "海信家电",
+      "交易所": "深交所",
+      "orgId": "gssz0000921",
+      "巨潮简称": "海信家电",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-03-31",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225050277.PDF",
+          "size_kb": 1486,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「海信家电」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225050277",
+          "sec_code": "000921",
+          "sec_name": "海信家电"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-03-31",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225050276.PDF",
+          "size_kb": 348,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225050276",
+          "sec_code": "000921",
+          "sec_name": "海信家电"
+        }
+      ]
+    },
+    {
+      "证券代码": "002668",
+      "公司简称": "TCL智家",
+      "交易所": "深交所",
+      "orgId": "9900022336",
+      "巨潮简称": "TCL智家",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-03-11",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-11/1225004114.PDF",
+          "size_kb": 3541,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「TCL智家」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225004114",
+          "sec_code": "002668",
+          "sec_name": "TCL智家"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-03-11",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-11/1225004113.PDF",
+          "size_kb": 427,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225004113",
+          "sec_code": "002668",
+          "sec_name": "TCL智家"
+        }
+      ]
+    },
+    {
+      "证券代码": "000521",
+      "公司简称": "长虹美菱",
+      "交易所": "深交所",
+      "orgId": "gssz0000521",
+      "巨潮简称": "长虹美菱",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-03",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-03/1225077806.PDF",
+          "size_kb": 1637,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「长虹美菱」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225077806",
+          "sec_code": "000521",
+          "sec_name": "长虹美菱"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-03",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-03/1225077805.PDF",
+          "size_kb": 181,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225077805",
+          "sec_code": "000521",
+          "sec_name": "长虹美菱"
+        }
+      ]
+    },
+    {
+      "证券代码": "600336",
+      "公司简称": "澳柯玛",
+      "交易所": "上交所",
+      "orgId": "gssh0600336",
+      "巨潮简称": "澳柯玛",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "澳柯玛股份有限公司2025年年度报告",
+          "publish_date": "2026-04-23",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225147675.PDF",
+          "size_kb": 1258,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [],
+          "announcement_id": "1225147675",
+          "sec_code": "600336",
+          "sec_name": "澳柯玛"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "澳柯玛股份有限公司2025年年度报告摘要",
+          "publish_date": "2026-04-23",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225147755.PDF",
+          "size_kb": 237,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225147755",
+          "sec_code": "600336",
+          "sec_name": "澳柯玛"
+        }
+      ]
+    },
+    {
+      "证券代码": "002032",
+      "公司简称": "苏泊尔",
+      "交易所": "深交所",
+      "orgId": "gssz0002032",
+      "巨潮简称": "苏泊尔",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-03",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-03/1225076804.PDF",
+          "size_kb": 4232,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「苏泊尔」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225076804",
+          "sec_code": "002032",
+          "sec_name": "苏 泊 尔"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-03",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-03/1225076803.PDF",
+          "size_kb": 226,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225076803",
+          "sec_code": "002032",
+          "sec_name": "苏 泊 尔"
+        }
+      ]
+    },
+    {
+      "证券代码": "002242",
+      "公司简称": "九阳股份",
+      "交易所": "深交所",
+      "orgId": "9900004732",
+      "巨潮简称": "九阳股份",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-03-27",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225036494.PDF",
+          "size_kb": 1078,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「九阳股份」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225036494",
+          "sec_code": "002242",
+          "sec_name": "九阳股份"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要（英文版）",
+          "publish_date": "2026-03-27",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225036520.PDF",
+          "size_kb": 174,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225036520",
+          "sec_code": "002242",
+          "sec_name": "九阳股份"
+        },
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-03-27",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225036493.PDF",
+          "size_kb": 251,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225036493",
+          "sec_code": "002242",
+          "sec_name": "九阳股份"
+        }
+      ]
+    },
+    {
+      "证券代码": "002705",
+      "公司简称": "新宝股份",
+      "交易所": "深交所",
+      "orgId": "9900023005",
+      "巨潮简称": "新宝股份",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225226404.PDF",
+          "size_kb": 1746,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「新宝股份」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225226404",
+          "sec_code": "002705",
+          "sec_name": "新宝股份"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225226403.PDF",
+          "size_kb": 763,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225226403",
+          "sec_code": "002705",
+          "sec_name": "新宝股份"
+        }
+      ]
+    },
+    {
+      "证券代码": "002959",
+      "公司简称": "小熊电器",
+      "交易所": "深交所",
+      "orgId": "9900037093",
+      "巨潮简称": "小熊电器",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-09",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-09/1225085711.PDF",
+          "size_kb": 3918,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「小熊电器」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225085711",
+          "sec_code": "002959",
+          "sec_name": "小熊电器"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-09",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-09/1225085710.PDF",
+          "size_kb": 142,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225085710",
+          "sec_code": "002959",
+          "sec_name": "小熊电器"
+        }
+      ]
+    },
+    {
+      "证券代码": "603486",
+      "公司简称": "科沃斯",
+      "交易所": "上交所",
+      "orgId": "GD134549",
+      "巨潮简称": "科沃斯",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-25",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-25/1225188666.PDF",
+          "size_kb": 1552,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「科沃斯」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225188666",
+          "sec_code": "603486",
+          "sec_name": "科沃斯"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-25",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-25/1225188694.PDF",
+          "size_kb": 269,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225188694",
+          "sec_code": "603486",
+          "sec_name": "科沃斯"
+        }
+      ]
+    },
+    {
+      "证券代码": "688169",
+      "公司简称": "石头科技",
+      "交易所": "上交所",
+      "orgId": "9900039123",
+      "巨潮简称": "石头科技",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "北京石头世纪科技股份有限公司2025年年度报告",
+          "publish_date": "2026-04-23",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225147552.PDF",
+          "size_kb": 2232,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题含公司全称特征词但未出现目标简称，无法据标题断定主体即目标公司，须打开原文首页人工核对"
+          ],
+          "announcement_id": "1225147552",
+          "sec_code": "688169",
+          "sec_name": "石头科技"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告摘要",
+          "title": "北京石头世纪科技股份有限公司2025年度报告摘要",
+          "publish_date": "2026-04-23",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225147553.PDF",
+          "size_kb": 573,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225147553",
+          "sec_code": "688169",
+          "sec_name": "石头科技"
+        }
+      ]
+    },
+    {
+      "证券代码": "002508",
+      "公司简称": "老板电器",
+      "交易所": "深交所",
+      "orgId": "9900015938",
+      "巨潮简称": "老板电器",
+      "状态": "找到 1 条全文候选",
+      "错误": "",
+      "疑点": [],
+      "全文候选": [
+        {
+          "kind": "年度报告全文",
+          "title": "2025年年度报告",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225237757.PDF",
+          "size_kb": 1073,
+          "adjunct_type": "PDF",
+          "basis": "标题含「2025年年度报告」且不含「摘要」「英文」",
+          "doubts": [
+            "标题未出现任何公司名称（目标简称为「老板电器」），主体仅由公告证券代码与检索范围确定，建议打开原文首页再核对一次"
+          ],
+          "announcement_id": "1225237757",
+          "sec_code": "002508",
+          "sec_name": "老板电器"
+        }
+      ],
+      "已排除": [
+        {
+          "kind": "年度报告英文版",
+          "title": "2025年年度报告（英文版）",
+          "publish_date": "2026-05-09",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-05-09/1225285142.PDF",
+          "size_kb": 1443,
+          "adjunct_type": "PDF",
+          "basis": "标题含「英文」，非中文正式版本",
+          "doubts": [],
+          "announcement_id": "1225285142",
+          "sec_code": "002508",
+          "sec_name": "老板电器"
+        },
+        {
+          "kind": "年度报告摘要",
+          "title": "2025年年度报告摘要",
+          "publish_date": "2026-04-29",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-04-29/1225237756.PDF",
+          "size_kb": 165,
+          "adjunct_type": "PDF",
+          "basis": "标题含「摘要」，属摘要版而非全文",
+          "doubts": [],
+          "announcement_id": "1225237756",
+          "sec_code": "002508",
+          "sec_name": "老板电器"
+        }
+      ]
+    }
+  ]
+}
